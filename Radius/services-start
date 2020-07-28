@@ -1,0 +1,5 @@
+#!/bin/sh
+# This cript get called after all other system services have been started at boot on router
+# -------------------------------------------------------------------------------------------
+# Cron job to install after reboot
+cru a ip_update "* * * * * sh /jffs/scripts/ip_update.sh"
