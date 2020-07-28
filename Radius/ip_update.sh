@@ -3,6 +3,7 @@
 
 curip=$(curl -q http://ipecho.net/plain)
 previp=$(cat /jffs/scripts/previp.txt)
+apikey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 name="WiFi"
 sharedsecret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 mfa="MAINTAIN"
@@ -18,7 +19,7 @@ curl \
   -X 'PUT' \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
-  -H "x-api-key: 5ea7df37a45a18ece45501da852da29b3f28c26b" \
+  -H "x-api-key:$apikey" \
   -d '{"name" : $name, "sharedSecret" : $sharedsecret, "networkSourceIp":$curip,"mfa":$mfa,"userLockoutAction":$userLockoutAction,"userPasswordExpirationAction":$userPasswordExpirationAction}' \
   "https://console.jumpcloud.com/api/radiusservers/$radiusid"
 fi
