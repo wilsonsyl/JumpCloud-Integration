@@ -6,7 +6,7 @@ previp=$(cat /jffs/scripts/previp.txt)
 apikey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 name="WiFi"
 sharedsecret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-mfa="MAINTAIN"
+mfa="DISABLED"
 userLockoutAction="MAINTAIN"
 userPasswordExpirationAction="MAINTAIN"
 radiusid=xxxxxxxxxxxxxxxxxxxxxxxx
@@ -20,6 +20,6 @@ curl \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H "x-api-key:$apikey" \
-  -d '{"name" : $name, "sharedSecret" : $sharedsecret, "networkSourceIp":$curip,"mfa":$mfa,"userLockoutAction":$userLockoutAction,"userPasswordExpirationAction":$userPasswordExpirationAction}' \
+  -d '{"name" : "'$name'", "sharedSecret" : "'$sharedsecret'", "networkSourceIp":"'$curip'","mfa":"'$mfa'","userLockoutAction":"'$userLockoutAction'","userPasswordExpirationAction":"'$userPasswordExpirationAction'"}' \
   "https://console.jumpcloud.com/api/radiusservers/$radiusid"
 fi
